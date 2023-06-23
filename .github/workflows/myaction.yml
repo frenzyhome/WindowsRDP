@@ -12,10 +12,8 @@ jobs:
     - name: Download Ngrok & NSSM
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/charan2004152004/Ngrok-Exe/main/ngrok.exe -OutFile ngrok.exe
-        Invoke-WedRequest https://nssm.cc/release/nssm-2.24.zip -OutFile nssm.exe
     - name: Copy NSSM & Ngrok to Windows Directory.
-      run: | 
-        copy nssm.exe C:\Windows\System32
+      run: |
         copy ngrok.exe C:\Windows\System32
     - name: Connect your NGROK account
       run: .\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
